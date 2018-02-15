@@ -23,6 +23,9 @@ class MainActivity : AppCompatActivity() {
             edit.putString("USER_IMAGE_URL", edit_text_image_url.text.toString())
             edit.apply()
 
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
+            finish()
         })
     }
 }
