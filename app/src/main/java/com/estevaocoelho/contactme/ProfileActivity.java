@@ -6,16 +6,23 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by estevaocoelho on 15/02/18.
  */
 
 public class ProfileActivity extends AppCompatActivity {
+
+    public List<SocialMedia> socialMediaList = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
         TextView textViewUserPhotoURL = findViewById(R.id.text_view_user_url);
         ImageView ImageViewUserPhoto = findViewById(R.id.user_image);
         FloatingActionButton fab = findViewById(R.id.fab);
+        ListView listView = findViewById(R.id.listView);
 
         textViewUserName.setText(userInfoFromSharedPreferences.getUserName());
         textViewUserPhotoURL.setText(userInfoFromSharedPreferences.getPhotoURL());
@@ -40,5 +48,17 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(goToNewSocialMediaActivity);
             }
         });
+
+
+        socialMediaList.add(new SocialMedia(SocialMediaType.FACEBOOK, "Estevão Coelho", "http://www.facebook.com.br/estevaoCoelho"));
+        socialMediaList.add(new SocialMedia(SocialMediaType.TUMBLR, "Estevão Coelho", "http://www.tumblr.com.br/meuTumblr"));
+        socialMediaList.add(new SocialMedia(SocialMediaType.INSTAGRAM, "Estevão Coelho", "http://www.instagram.com.br/MeuInstagram"));
+        socialMediaList.add(new SocialMedia(SocialMediaType.LINKEDIN, "Estevão Coelho", "http://www.linkedin.com.br/estevaocoelho"));
+        socialMediaList.add(new SocialMedia(SocialMediaType.TWITTER, "Estevão Coelho", "http://www.twitter.com.br/estevao.coelho1"));
+
+        SocialMediaAdapter socialMediaAdapter = new SocialMediaAdapter(socialMediaList);
+        listView.setAdapter(socialMediaAdapter);
+        socialMediaAdapter.notifyDataSetChanged();
+
     }
 }
