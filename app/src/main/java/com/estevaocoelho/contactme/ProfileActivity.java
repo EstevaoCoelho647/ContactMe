@@ -16,6 +16,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile);
 
         SharedPreferences userSharedPrefs = getSharedPreferences("USER_INFO", Context.MODE_PRIVATE);
         String userName = userSharedPrefs.getString("USER_NAME", "");

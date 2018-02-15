@@ -1,6 +1,7 @@
 package com.estevaocoelho.contactme
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
@@ -21,6 +22,7 @@ class MainActivity : AppCompatActivity() {
             edit.putString("USER_NAME", edit_text_user_name.text.toString())
             edit.putString("USER_IMAGE_URL", edit_text_image_url.text.toString())
             edit.apply()
+
         })
     }
 }
