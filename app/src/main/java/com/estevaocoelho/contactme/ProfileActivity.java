@@ -5,8 +5,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 /**
  * Created by estevaocoelho on 15/02/18.
@@ -24,8 +26,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         TextView textViewUserName = findViewById(R.id.text_view_user_name);
         TextView textViewUserPhotoURL = findViewById(R.id.text_view_user_url);
+        ImageView ImageViewUserPhoto = findViewById(R.id.user_image);
 
         textViewUserName.setText(userName);
         textViewUserPhotoURL.setText(userImageUrl);
+        Picasso.with(this).load(userImageUrl).into(ImageViewUserPhoto);
     }
 }
