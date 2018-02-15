@@ -1,6 +1,5 @@
 package com.estevaocoelho.contactme
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -16,12 +15,7 @@ class MainActivity : AppCompatActivity() {
         button_next.setOnClickListener({
             Toast.makeText(this, "Button clicked", Toast.LENGTH_SHORT).show()
 
-            val sharedPreferences = getSharedPreferences("USER_INFO", Context.MODE_PRIVATE)
-
-            val edit = sharedPreferences.edit()
-            edit.putString("USER_NAME", edit_text_user_name.text.toString())
-            edit.putString("USER_IMAGE_URL", edit_text_image_url.text.toString())
-            edit.apply()
+            SharedPreferencesUtil.saveUserInfoInSharedPreferences(this, edit_text_user_name.text, edit_text_image_url.text)
 
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
