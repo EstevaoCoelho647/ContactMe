@@ -22,7 +22,8 @@ import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    public List<SocialMedia> socialMediaList = new ArrayList<>();
+    public static List<SocialMedia> socialMediaList = new ArrayList<>();
+    SocialMediaAdapter socialMediaAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,16 +50,14 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-
-        socialMediaList.add(new SocialMedia(SocialMediaType.FACEBOOK, "Estevão Coelho", "http://www.facebook.com.br/estevaoCoelho"));
-        socialMediaList.add(new SocialMedia(SocialMediaType.TUMBLR, "Estevão Coelho", "http://www.tumblr.com.br/meuTumblr"));
-        socialMediaList.add(new SocialMedia(SocialMediaType.INSTAGRAM, "Estevão Coelho", "http://www.instagram.com.br/MeuInstagram"));
-        socialMediaList.add(new SocialMedia(SocialMediaType.LINKEDIN, "Estevão Coelho", "http://www.linkedin.com.br/estevaocoelho"));
-        socialMediaList.add(new SocialMedia(SocialMediaType.TWITTER, "Estevão Coelho", "http://www.twitter.com.br/estevao.coelho1"));
-
-        SocialMediaAdapter socialMediaAdapter = new SocialMediaAdapter(socialMediaList);
+        socialMediaAdapter = new SocialMediaAdapter(socialMediaList);
         listView.setAdapter(socialMediaAdapter);
         socialMediaAdapter.notifyDataSetChanged();
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        socialMediaAdapter.notifyDataSetChanged();
     }
 }

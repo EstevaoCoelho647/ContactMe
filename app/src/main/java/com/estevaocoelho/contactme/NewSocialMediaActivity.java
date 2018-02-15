@@ -46,22 +46,32 @@ public class NewSocialMediaActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View v) {
+        SocialMediaType socialMediaType;
         switch (v.getId()) {
             case R.id.imageViewFacebook:
-
+                socialMediaType = SocialMediaType.FACEBOOK;
                 break;
             case R.id.imageViewInstagram:
-
+                socialMediaType = SocialMediaType.INSTAGRAM;
                 break;
             case R.id.imageViewLinkedin:
-
+                socialMediaType = SocialMediaType.LINKEDIN;
                 break;
             case R.id.imageViewTumblr:
-
+                socialMediaType = SocialMediaType.TUMBLR;
                 break;
             case R.id.imageViewTwitter:
-
+                socialMediaType = SocialMediaType.TWITTER;
                 break;
+            default:
+                socialMediaType = SocialMediaType.FACEBOOK;
         }
+        addNewItemOnList(socialMediaType);
+    }
+
+    private void addNewItemOnList(SocialMediaType socialMediaType) {
+        SocialMedia socialMedia = new SocialMedia(socialMediaType, editTextNameToShow.getText().toString(), editTextMediaLink.getText().toString());
+        ProfileActivity.socialMediaList.add(socialMedia);
+        finish();
     }
 }
