@@ -1,10 +1,12 @@
 package com.estevaocoelho.contactme;
 
+import java.io.Serializable;
+
 /**
  * Created by estevaocoelho on 15/02/18.
  */
 
-public class SocialMedia {
+public class SocialMedia implements Serializable {
     private SocialMediaType mediaType;
     private String nameToShow;
     private String url;

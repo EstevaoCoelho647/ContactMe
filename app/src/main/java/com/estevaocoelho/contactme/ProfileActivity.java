@@ -1,12 +1,12 @@
 package com.estevaocoelho.contactme;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,7 +22,7 @@ import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    public static List<SocialMedia> socialMediaList = new ArrayList<>();
+    public List<SocialMedia> socialMediaList = new ArrayList<>();
     SocialMediaAdapter socialMediaAdapter;
 
     @Override
@@ -46,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToNewSocialMediaActivity = new Intent(ProfileActivity.this, NewSocialMediaActivity.class);
-                startActivity(goToNewSocialMediaActivity);
+                startActivityForResult(goToNewSocialMediaActivity, 1);
             }
         });
 
@@ -56,8 +56,24 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        socialMediaAdapter.notifyDataSetChanged();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            switch (requestCode) {
+                case 1:
+                    getNewSocialMediaFromBundle(data);
+                    break;
+            }
+
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void getNewSocialMediaFromBundle(Intent data) {
+        Bundle extras = data.getExtras();
+        if (extras != null) {
+            SocialMedia result = (SocialMedia) extras.getSerializable("result");
+            socialMediaList.add(result);
+            socialMediaAdapter.notifyDataSetChanged();
+        }
     }
 }

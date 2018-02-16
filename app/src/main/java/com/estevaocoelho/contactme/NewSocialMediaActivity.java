@@ -1,5 +1,7 @@
 package com.estevaocoelho.contactme;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -66,12 +68,14 @@ public class NewSocialMediaActivity extends AppCompatActivity implements View.On
             default:
                 socialMediaType = SocialMediaType.FACEBOOK;
         }
-        addNewItemOnList(socialMediaType);
+        createNewSocialItem(socialMediaType);
     }
 
-    private void addNewItemOnList(SocialMediaType socialMediaType) {
+    private void createNewSocialItem(SocialMediaType socialMediaType) {
         SocialMedia socialMedia = new SocialMedia(socialMediaType, editTextNameToShow.getText().toString(), editTextMediaLink.getText().toString());
-        ProfileActivity.socialMediaList.add(socialMedia);
+        Intent intent = getIntent();
+        intent.putExtra("result", socialMedia);
+        setResult(Activity.RESULT_OK, intent);
         finish();
     }
 }
