@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.Editable;
 
+import com.estevaocoelho.contactme.activity.ProfileActivity;
 import com.estevaocoelho.contactme.entity.User;
 
 /**
@@ -34,5 +35,11 @@ public class SharedPreferencesUtil {
     public static boolean hasUserInSharedPreferences(Context context) {
         User user = getUserInfoFromSharedPreferences(context);
         return user.getPhotoURL().equals("") && user.getUserName().equals("");
+    }
+
+    public static void removeUserFromSharedPreferences(Context context) {
+        SharedPreferences.Editor edit = getSharedPreferences(context).edit();
+        edit.clear();
+        edit.apply();
     }
 }
