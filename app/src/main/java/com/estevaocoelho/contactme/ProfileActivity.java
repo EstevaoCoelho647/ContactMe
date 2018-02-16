@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -53,6 +54,16 @@ public class ProfileActivity extends AppCompatActivity {
         socialMediaAdapter = new SocialMediaAdapter(socialMediaList);
         listView.setAdapter(socialMediaAdapter);
         socialMediaAdapter.notifyDataSetChanged();
+
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                socialMediaList.remove(position);
+                socialMediaAdapter.notifyDataSetChanged();
+                return false;
+            }
+        });
     }
 
     @Override
@@ -63,7 +74,6 @@ public class ProfileActivity extends AppCompatActivity {
                     getNewSocialMediaFromBundle(data);
                     break;
             }
-
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
