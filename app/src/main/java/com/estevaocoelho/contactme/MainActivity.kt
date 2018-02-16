@@ -12,14 +12,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button_next.setOnClickListener({
-            Toast.makeText(this, "Button clicked", Toast.LENGTH_SHORT).show()
+        if (SharedPreferencesUtil.hasUserInSharedPreferences(this)) {
+            button_next.setOnClickListener({
+                SharedPreferencesUtil.saveUserInfoInSharedPreferences(this, edit_text_user_name.text, edit_text_image_url.text)
+                goToProfileActivity()
+            })
+        } else {
+            goToProfileActivity()
+        }
+    }
 
-            SharedPreferencesUtil.saveUserInfoInSharedPreferences(this, edit_text_user_name.text, edit_text_image_url.text)
-
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-            finish()
-        })
+    private fun goToProfileActivity() {
+        val intent = Intent(this, ProfileActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

@@ -28,4 +28,9 @@ public class SharedPreferencesUtil {
         editor.putString("USER_IMAGE_URL", userImageURL.toString());
         editor.apply();
     }
+
+    public static boolean hasUserInSharedPreferences(Context context) {
+        User user = getUserInfoFromSharedPreferences(context);
+        return user.getPhotoURL().equals("") && user.getUserName().equals("");
+    }
 }
