@@ -1,8 +1,10 @@
-package com.estevaocoelho.contactme;
+package com.estevaocoelho.contactme.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.Editable;
+
+import com.estevaocoelho.contactme.entity.User;
 
 /**
  * Created by estevaocoelho on 15/02/18.

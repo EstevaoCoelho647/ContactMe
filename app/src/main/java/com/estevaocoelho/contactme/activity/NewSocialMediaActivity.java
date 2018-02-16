@@ -1,4 +1,4 @@
-package com.estevaocoelho.contactme;
+package com.estevaocoelho.contactme.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.estevaocoelho.contactme.R;
+import com.estevaocoelho.contactme.entity.SocialMedia;
+import com.estevaocoelho.contactme.entity.SocialMediaType;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

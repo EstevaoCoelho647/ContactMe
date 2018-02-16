@@ -1,4 +1,4 @@
-package com.estevaocoelho.contactme;
+package com.estevaocoelho.contactme.entity;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package com.estevaocoelho.contactme;
+package com.estevaocoelho.contactme.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,6 +12,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.estevaocoelho.contactme.R;
+import com.estevaocoelho.contactme.util.SharedPreferencesUtil;
+import com.estevaocoelho.contactme.entity.SocialMedia;
+import com.estevaocoelho.contactme.activity.adapter.SocialMediaAdapter;
+import com.estevaocoelho.contactme.entity.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

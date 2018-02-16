@@ -1,9 +1,10 @@
-package com.estevaocoelho.contactme
+package com.estevaocoelho.contactme.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Toast
+import com.estevaocoelho.contactme.R
+import com.estevaocoelho.contactme.util.SharedPreferencesUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

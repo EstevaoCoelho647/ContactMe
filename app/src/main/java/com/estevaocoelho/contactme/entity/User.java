@@ -1,4 +1,4 @@
-package com.estevaocoelho.contactme;
+package com.estevaocoelho.contactme.entity;
 
 /**
  * Created by estevaocoelho on 15/02/18.

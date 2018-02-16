@@ -1,14 +1,14 @@
-package com.estevaocoelho.contactme;
+package com.estevaocoelho.contactme.activity.adapter;
 
-import android.content.Context;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.TextView;
+
+import com.estevaocoelho.contactme.R;
+import com.estevaocoelho.contactme.entity.SocialMedia;
 
 import java.util.List;
 
