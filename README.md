@@ -3,8 +3,11 @@ Aplicativo criado durante o Evento do MonitoraSummer (www.monitorasummer.com.br)
 
 Palestrante:
 Estevão H. Coelho
+
 Analista e Desenvolvedor de Sistemas
+
 estevaohecoelho@gmail.com
+
 https://github.com/EstevaoCoelho647
 
 ## Conceitos usados:
